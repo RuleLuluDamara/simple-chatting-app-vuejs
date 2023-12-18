@@ -14,17 +14,20 @@
         <br />
       </div> -->
       <section class="gradient-custom m-2">
-        <div class="container py-5">
+        <div class="container py-2">
+          <div class="title">
+            <h3 class="text-center" style="margin-left: 16px; font-weight: bold; font-size: 30px">Chat With : {{ receiverName }}</h3>
+          </div>
           <div class="row">
             <ul class="list-unstyled">
-              <li v-for="(message, index) in messages" :key="index" class="text-white">
-                <div class="card mask-custom">
-                  <div class="card-header d-flex justify-content-between p-3 m-2" style="border-bottom: 1px solid rgba(255, 255, 255, 0.3); border-radius: 10px">
-                    <img :src="'https://picsum.photos/100/100?random=${randomIndex(avatars)' + ((index % 10) + 1)" alt="avatar" class="rounded-circle d-flex align-self-start me-3 shadow-1-strong" width="60" />
-                    <p class="ufw-bold mb-0 text-white" style="font-size: 20px"><span class="fw-bold text-white">Username :</span> {{ message.sender.username }}</p>
+              <li v-for="(message, index) in messages" :key="index" class="text-white d-flex justify-content-center">
+                <div class="card mask-custom" style="width: 50%">
+                  <div class="card-header d-flex justify-content-between p-3 m-2" style="border-bottom: 1px solid rgba(255, 255, 255, 0.3); border-radius: 50px">
+                    <img :src="'https://picsum.photos/100/100?random=${randomIndex(people)' + ((index % 10) + 1)" alt="avatar" class="rounded-circle d-flex align-self-start me-3 shadow-1-strong" width="60" />
+                    <p class="ufw-bold mb-0 text-white" style="font-size: 15px"><span class="fw-bold text-white">Username :</span> {{ message.sender.username }}</p>
                   </div>
                   <div class="card-body m-2">
-                    <p class="mb-0 text-white" style="font-size: 20px"><span class="fw-bold">Chat : </span>{{ message.content }}</p>
+                    <p class="mb-0 text-white" style="font-size: 15px"><span class="fw-bold">Chat : </span>{{ message.content }}</p>
                   </div>
                 </div>
               </li>
@@ -32,12 +35,12 @@
           </div>
         </div>
 
-        <div class="">
+        <div class="m-3">
           <form @submit.prevent="sendMessage" class="custom-form">
-            <div class="me-5 ps-5 pb-5">
-              <label for="content" class="form-label fw-bold">message</label>
-              <textarea class="form-control" id="content" v-model="content" required></textarea>
-              <button type="submit" class="btn btn-light btn-lg btn-rounded float-end m-2">Send</button>
+            <div class="me-5 ps-5 pb-5 d-flex flex-column align-items-center">
+              <label for="content" class="form-label fw-bold" style="font-size: 20px">Message</label>
+              <textarea class="form-control" id="content" v-model="content" required style="width: 50%"></textarea>
+              <button type="submit" class="btn btn-lg btn-rounded float-end m-2">Send</button>
             </div>
             <!-- <button type="submit" class="btn btn-light btn-lg btn-rounded float-end m-2" @click="router.push('/channel')">Home</button> -->
           </form>
@@ -213,6 +216,11 @@ export default {
 .btn-rounded {
   border-radius: 20px;
   background-color: white;
+  color: grey;
+}
+
+.form-control {
+  border-radius: 20px;
 }
 
 .mask-custom {

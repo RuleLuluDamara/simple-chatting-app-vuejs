@@ -30,24 +30,24 @@
                     <li class="list-group-item p-1">
                       <div class="d-flex justify-content-between">
                         <div class="d-flex flex-row">
-                          <img :src="'https://picsum.photos/100/100?random=${randomIndex(avatars)' + ((index % 10) + 1)" alt="avatar" class="rounded-circle me-3 shadow-1-strong" width="60" />
+                          <img :src="'https://picsum.photos/200/200?random=${randomIndex(people)' + ((index % 10) + 1)" alt="avatar" class="rounded-circle me-3 shadow-1-strong" width="60" />
                           <div class="pt-1">
                             <!-- <p class="fw-bold mb-0">{{ channel.id }}</p> -->
-                            <p class="fw-bold p-2" style="font-size: 20px">{{ channel.channels_name }}</p>
+                            <p class="fw-bold p-2 text-white" style="font-size: 20px">{{ channel.channels_name }}</p>
                           </div>
                         </div>
                         <div class="pt-1">
                           <!-- <p class="small text-white mb-1">Just now</p> -->
                           <!-- <span class="badge bg-danger float-end">1</span> -->
-                          <button @click="joinChannel(channel.id)" class="btn btn-success p-3" style="font-weight: bold; color: white">Join {{ channel.channels_name }}</button>
+                          <button @click="joinChannel(channel.id)" class="btn btn-outline-light p-3" style="font-weight: bold; color: white;">Join {{ channel.channels_name }}</button>
                         </div>
                       </div>
                     </li>
                   </div>
                 </div>
 
-                <button type="submit" expand="full" class="btn gradient-custom btn-rounded btn-lg m-2" style="font-weight: bold; width: 50%; color: white" @click="toAddChannel">New Channel</button>
-                <button type="submit" expand="full" class="btn gradient-custom btn-rounded btn-lg m-2" style="font-weight: bold; width: 50%; color: white" @click="router.push('/')">Home</button>
+                <button type="submit" expand="full" class="btn btn-light btn-lg btn-rounded float-end m-2" style="font-weight: bold; width: auto; color: grey" @click="toAddChannel">New Channel</button>
+                <button type="submit" expand="full" class="btn btn-light btn-lg btn-rounded float-end m-2" style="font-weight: bold; width: auto; color: grey" @click="router.push('/')">Home</button>
               </div>
             </div>
           </section>
@@ -265,6 +265,10 @@ getchannels();
   background-color: transparent;
   border-color: transparent;
   width: 50%;
+}
+
+.btn {
+  border-radius: 20px;
 }
 
 .mask-custom {

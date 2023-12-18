@@ -13,7 +13,7 @@
                   <div class="card-body p-4">
                     <div class="d-flex text-black">
                       <div class="flex-shrink-0">
-                        <img src="https://picsum.photos/100/100?random=${randomIndex(avatars) + 1}" alt="Generic placeholder image" class="img-fluid" style="width: 180px; border-radius: 10px" />
+                        <img src="https://picsum.photos/200/200?random&category=people" alt="Generic placeholder image" class="img-fluid" style="width: 180px; border-radius: 10px" />
                       </div>
                       <div class="flex-grow-1 ms-3">
                         <h5 class="mb-1">{{ curUsn }}</h5>
@@ -27,7 +27,7 @@
                         <div class="d-flex justify-content-center pt-1">
                           <!-- <button type="submit" fill="clear" class="btn gradient-custom btn-rounded btn-lg me-2" style="color: white" @click="router.push('/channel')">Channel</button>
                             <button type="submit" fill="clear" class="btn gradient-custom btn-rounded btn-lg me-2" style="color: white" @click="router.push('/chat')">Personal</button> -->
-                          <IonButton type="submit" fill="clear" class="btn btn-danger btn-rounded btn-block btn-lg" @click="logout">Logout</IonButton>
+                          <button type="submit" fill="clear" class="btn btn-danger btn-rounded btn-block btn-lg" @click="logout">Logout</button>
                         </div>
                       </div>
                     </div>
@@ -76,11 +76,11 @@ const logout = async () => {
 // This is called when the page is loaded. It sets up any data that needs to be fetched before rendering the component.
 onMounted(async () => {
   currentUser.value = await getUser();
+  if (!currentUser.value) router.replace("/signin");
   curUsn.value = currentUser.value.username;
   curEmail.value = currentUser.value.email;
 
   // console.log(curEmail);
-  if (!currentUser.value) router.replace("/signin");
 });
 
 const getUser = async () => {

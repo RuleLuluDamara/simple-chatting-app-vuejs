@@ -18,10 +18,10 @@
             <div class="container py-5 h-100 w-auto">
               <div class="row d-flex justify-content-center align-items-center h-100">
                 <div class="title">
-                  <h3 class="text-center" style="margin-left: 16px; font-weight: bold; font-size: 60px">accounts</h3>
+                  <h3 class="text-center" style="margin-left: 16px; font-weight: bold; font-size: 60px">Users</h3>
                 </div>
 
-                <div v-for="(account, index) in accounts" :key="index" class="card mb-3 mb-3 justify-content-center">
+                <div v-for="(account, index) in accounts" :key="index" class="card justify-content-center">
                   <div class="card-body mask-custom">
                     <!-- <h5 class="card-title">{{ account.id }}</h5> -->
                     <!-- <p class="card-text">{{ account.accounts_name }}</p> -->
@@ -30,24 +30,23 @@
                     <li class="list-group-item p-1">
                       <div class="d-flex justify-content-between">
                         <div class="d-flex flex-row">
-                          <img :src="'https://picsum.photos/100/100?random=${randomIndex(avatars)' + ((index % 10) + 1)" alt="avatar" class="rounded-circle me-3 shadow-1-strong" width="60" />
+                          <img :src="'https://picsum.photos/100/100?random=${randomIndex(people)' + ((index % 10) + 1)" alt="avatar" class="rounded-circle me-3 shadow-1-strong" width="60" />
                           <div class="pt-1">
                             <!-- <p class="fw-bold mb-0">{{ account.id }}</p> -->
-                            <p class="fw-bold p-2" style="font-size: 20px">{{ account.username }}</p>
+                            <p class="fw-bold p-2 text-white" style="font-size: 20px; color:white">{{ account.username }}</p>
                           </div>
                         </div>
                         <div class="pt-1">
                           <!-- <p class="small text-white mb-1">Just now</p> -->
                           <!-- <span class="badge bg-danger float-end">1</span> -->
-                          <button @click="joinAccount(account.id)" class="btn btn-success p-3" style="font-weight: bold; color: white">Join {{ account.username }}</button>
+                          <button @click="joinAccount(account.id)" class="btn btn-outline-light p-3" style="font-weight: bold; color: white">Join {{ account.username }}</button>
                         </div>
                       </div>
                     </li>
                   </div>
                 </div>
 
-                <!-- <button type="submit" expand="full" class="btn gradient-custom btn-rounded btn-lg m-2" style="font-weight: bold; width: 50%; color: white" @click="toAddaccount">New account</button> -->
-                <button type="submit" expand="full" class="btn gradient-custom btn-rounded btn-lg m-2" style="font-weight: bold; width: 50%; color: white" @click="router.push('/')">Home</button>
+                <button type="submit" expand="full" class="btn btn-light btn-lg btn-rounded float-end m-2" style="font-weight: bold; width: auto; color: grey" @click="router.push('/')">Home</button>
               </div>
             </div>
           </section>
@@ -265,6 +264,10 @@ getaccounts();
   background-color: transparent;
   border-color: transparent;
   width: 50%;
+}
+
+.btn {
+  border-radius: 20px;
 }
 
 .mask-custom {

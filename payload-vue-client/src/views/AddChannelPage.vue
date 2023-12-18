@@ -7,11 +7,11 @@
           <input type="text" class="form-control" id="channels_name" v-model="channels_name" required />
         </div>
         <div id="" class="group-button justify-content-center">
-          <button type="submit" class="btn gradient-custom m-2 fw-bold">Add</button>
+          <button type="submit" class="btn gradient-custom btn-outline-ligth m-2 fw-bold">Add</button>
         </div>
       </form>
       <div id="" class="group-button justify-content-center">
-        <button @click="$router.push('/channel')" class="btn gradient-custom m-2 fw-bold">Back to Channels</button>
+        <button @click="$router.push('/channel')" class="btn btn-outline-light m-2 fw-bold">Back to Channels</button>
       </div>
     </div>
     <div v-if="errors" class="col-md-6">
